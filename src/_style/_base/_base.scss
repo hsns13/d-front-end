@@ -1,0 +1,16 @@
+html, body, #root {
+    font-size: 97%;
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    color: $light-grayish-blue;
+    font-family: 'Josefin Sans';
+    font-size: 18px;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+}

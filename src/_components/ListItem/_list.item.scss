@@ -1,0 +1,37 @@
+.todo-list__item {
+    align-items: center;
+    border-bottom: 1px solid $dark-grayish-blue;
+    display: flex;
+    justify-content: space-between;
+    height: 52px;
+    position: relative;
+}
+
+.todo-list__checkbox {
+    border: 1px solid $light-grayish-blue;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 15px;
+    margin-left: 24px;
+    margin-right: 24px;
+    text-align: center;
+    width: 15px;
+}
+
+.todo-list__checkbox-first {
+    background-image: linear-gradient(to right bottom, red, blue);
+}
+
+.todo-list__checkbox svg {
+    margin-bottom: 3px;
+}
+
+.todo-list__item__line {
+    border-bottom: 1px solid $dark-grayish-blue;
+    display: inline-block;
+    margin: auto;
+    left: 50px;
+    position: absolute;
+    top: 26px;
+    width: 80%;
+}

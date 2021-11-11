@@ -1,0 +1,15 @@
+
+.todo-list {
+    border-radius: 8px;
+    background-color: $very-dark-desaturated-blue;
+    margin-top: 40px;
+}
+
+.todo-list__label {
+    width: 90%;
+}
+
+.todo-list__item label {
+    margin-left: 24px;
+}
+

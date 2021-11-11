@@ -1,0 +1,9 @@
+export const todoConstant = {
+    ADD: 'TODO_ADD',
+    UPDATE: 'TODO_UPDATE',
+    REMOVE: 'TODO_REMOVE',
+    ALL: 'TODO_ALL',
+    ACTIVE: 'TODO_ACTIVE',
+    COMPLETED: 'TODO_COMPLETED',
+    CLEAR_COMPLETED: 'TODO_CLEAR_COMPLETED'
+};

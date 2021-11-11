@@ -1,0 +1,17 @@
+/*
+*   BEM naming convention
+*/
+@import './_base/settings';
+@import './_base/base';
+
+// import app
+@import '../App/app';
+
+// import components
+@import '../_components/Button/button';
+@import '../_components/List/list';
+@import '../_components/ListItem/list.item';
+@import '../_components/Text/text';
+
+// import pages
+@import '../Pages/Todo/todo';
