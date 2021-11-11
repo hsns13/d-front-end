@@ -7,3 +7,11 @@
     outline: $very-dark-desaturated-blue;
     width: 100%;
 }
+
+.todo-input-textbox.todo-input-textbox-dark {
+    background-color: $very-dark-desaturated-blue;
+}
+
+.todo-input-textbox.todo-input-textbox-light {
+    background-color: $very-light-grayish;
+}

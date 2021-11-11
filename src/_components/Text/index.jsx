@@ -16,7 +16,7 @@ export const InputTextBox = (props) => {
     }
 
     return <input
-        className="todo-input-textbox"
+        className={['todo-input-textbox', `${props.textTheme}`].join(' ')}
         type='text'
         onKeyDown={handleKeyDown}
         onChange={onTextChange} />

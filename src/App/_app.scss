@@ -6,8 +6,15 @@
     z-index: -100;
 }
 
+.app-background.app-background-color-dark {
+    background-color: $very-dark-blue;
+}
+
+.app-background.app-background-color-light {
+    background-color: $very-light-gray;
+}
+
 .app-background-picture {
-    background-image: url('../_style/_assets/bg-desktop-dark.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -17,5 +24,10 @@
     z-index: -50;
 }
 
-.app-container {
+.app-background-picture.app-background-image-dark {
+    background-image: url('../_style/_assets/bg-desktop-dark.jpg');
+}
+
+.app-background-picture.app-background-image-light {
+    background-image: url('../_style/_assets/bg-desktop-light.jpg');
 }

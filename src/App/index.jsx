@@ -19,7 +19,7 @@ class App extends Component {
     }
 
     render() {
-        const { alertContainer } = this.props;
+        const { appContainer, alertContainer } = this.props;
 
         return (
             <Fragment>
@@ -33,8 +33,8 @@ class App extends Component {
                         </div>
                     )
                 }
-                <div className="app-background"></div>
-                <div className="app-background-picture"></div>
+                <div className={['app-background', `${appContainer.backgroundColorClass}`].join(' ')}></div>
+                <div className={['app-background-picture', `${appContainer.backgroundImageClass}`].join(' ')}></div>
                 <div className="app-container">
                     <Router history={history}>
                         <div>
@@ -50,8 +50,9 @@ class App extends Component {
     }
 }
 
-const mapStateToProps = ({ alertContainer }) => {
+const mapStateToProps = ({ appContainer, alertContainer }) => {
     return {
+        appContainer,
         alertContainer
     };
 };

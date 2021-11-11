@@ -42,10 +42,9 @@ const completed = () => {
     }
 };
 
-const clearCompleted = (todoList) => {
+const clearCompleted = () => {
     return {
-        type: todoConstant.CLEAR_COMPLETED,
-        todoList
+        type: todoConstant.CLEAR_COMPLETED
     }
 };
 
@@ -78,10 +77,10 @@ const startGetAll = () => {
     }
 }
 
-const startClearCompleted = (items) => {
+const startClearCompleted = () => {
     return (dispatch, getState) => {
         // do network call
-        clearCompleted(items);
+        dispatch(clearCompleted());
     }
 }
 
