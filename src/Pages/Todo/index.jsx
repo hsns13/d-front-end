@@ -46,8 +46,8 @@ class Todo extends Component {
     }
 
     // remove item on the list
-    onRemove = (e) => {
-
+    onRemove = (id) => {
+        this.props.removeTodo(id);
     }
 
     // get all items on the list, either active or completed

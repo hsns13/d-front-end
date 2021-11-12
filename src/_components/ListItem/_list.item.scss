@@ -12,6 +12,10 @@
 
 .todo-list-item__label {
     color: $light-grayish-blue;
+    overflow: auto;
+    padding: 4px 0;
+    word-wrap: break-word;
+    width: 80%;
 }
 
 .todo-list-item__label.todo-list-item-dark {
@@ -62,4 +66,10 @@
 .todo-list-item__checkbox svg {
     padding-top: 3px;
     padding-right: 0.5px;
+}
+
+@media (max-width: $desktop-breakpoint) {
+    .todo-list-item__label {
+        width: 75%;
+    }
 }

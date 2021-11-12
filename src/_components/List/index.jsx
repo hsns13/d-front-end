@@ -8,7 +8,11 @@ const List = (props) => {
             {
                 props.todoList.map((item) => {
                     return (
-                        <ListItem key={item.id} data={item} theme={props.theme} onUpdate={props.onUpdate}>
+                        <ListItem key={item.id} 
+                            data={item} 
+                            theme={props.theme} 
+                            onUpdate={props.onUpdate}
+                            onRemove={props.onRemove}>
                             {
                                 item.todoText
                             }

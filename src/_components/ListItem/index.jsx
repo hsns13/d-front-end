@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
-const ListItem = (props) => {
-    // const [clicked, setClicked] = useState(false);
-    // const [selected, setSelected] = useState('');
+// import component
+import { Button } from '../Button';
 
+const ListItem = (props) => {
     const [state, setState] = useState({
         clicked: false,
-        checkboxSelected:'',
+        checkboxSelected: '',
         itemSelected: ''
     });
 
@@ -29,13 +29,20 @@ const ListItem = (props) => {
     }
 
     const onClick = (e) => {
+        console.log(state);
+
         setState({
             clicked: !state.clicked,
             checkboxSelected: !state.clicked ? 'checkbox-selected' : '',
-            itemSelected: !state.clicked ? 'label-selected' :''
+            itemSelected: !state.clicked ? 'label-selected' : ''
         });
 
         props.onUpdate(props.data.id);
+    }
+
+    const onRemove = (e) => {
+        e.preventDefault();
+        props.onRemove(props.data.id);
     }
 
     return (
@@ -50,6 +57,11 @@ const ListItem = (props) => {
                 {
                     props.children
                 }
+            </div>
+            <div>
+                <Button onClick={onRemove}>
+                    X
+                </Button>
             </div>
         </div>
     );
