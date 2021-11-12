@@ -10,8 +10,10 @@
 
 .todo-input-textbox.todo-input-textbox-dark {
     background-color: $very-dark-desaturated-blue;
+    color: $light-grayish-blue;
 }
 
 .todo-input-textbox.todo-input-textbox-light {
     background-color: $very-light-grayish;
+    color: $very-dark-desaturated-blue;
 }

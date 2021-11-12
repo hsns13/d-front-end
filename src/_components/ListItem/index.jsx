@@ -1,18 +1,27 @@
 import React, { useState, useEffect } from 'react';
 
 const ListItem = (props) => {
-    const [clicked, setClicked] = useState(false);
-    const [selected, setSelected] = useState('');
+    // const [clicked, setClicked] = useState(false);
+    // const [selected, setSelected] = useState('');
+
+    const [state, setState] = useState({
+        clicked: false,
+        checkboxSelected:'',
+        itemSelected: ''
+    });
 
     useEffect(() => {
         if (!props.data.isActive) {
-            setClicked(true);
-            setSelected('todo-list__checkbox-first');
+            setState({
+                clicked: true,
+                checkboxSelected: 'checkbox-selected',
+                itemSelected: 'label-selected'
+            });
         }
     }, [props.data.isActive]);
 
     const getClickedButton = () => {
-        if (clicked) {
+        if (state.clicked) {
             return <svg xmlns="http://www.w3.org/2000/svg" width="11" height="9"><path fill="none" stroke="#FFF" strokeWidth="2" d="M1 4.304L3.696 7l6-6" /></svg>;
         }
 
@@ -20,28 +29,26 @@ const ListItem = (props) => {
     }
 
     const onClick = (e) => {
-        setClicked(!clicked);
-        setSelected(!clicked ? 'todo-list__checkbox-first' : '');
+        setState({
+            clicked: !state.clicked,
+            checkboxSelected: !state.clicked ? 'checkbox-selected' : '',
+            itemSelected: !state.clicked ? 'label-selected' :''
+        });
 
         props.onUpdate(props.data.id);
     }
 
     return (
-        <div className="todo-list__item">
-            <div className={['todo-list__checkbox', `${selected}`].join(' ')}
+        <div className={['todo-list-item', `${props.theme.ListItemClass}`].join(' ')}>
+            <div className={['todo-list-item__checkbox', `${state.checkboxSelected}`, `${props.theme.ListItemClass}`].join(' ')}
                 onClick={onClick}>
                 {
                     getClickedButton()
                 }
             </div>
-            <div className="todo-list__label">
+            <div className={['todo-list-item__label', `${props.theme.ListItemClass}`, `${state.itemSelected}`].join(' ')}>
                 {
                     props.children
-                }
-                {
-                    clicked &&
-                    <div className="todo-list__item__line">
-                    </div>
                 }
             </div>
         </div>

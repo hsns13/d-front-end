@@ -18,7 +18,7 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 40%;
+    height: 270px;
     position: fixed;
     width: 100%;
     z-index: -50;
@@ -30,4 +30,14 @@
 
 .app-background-picture.app-background-image-light {
     background-image: url('../_style/_assets/bg-desktop-light.jpg');
+}
+
+@media (max-width: $desktop-breakpoint) {
+    .app-background-picture.app-background-image-dark {
+        background-image: url('../_style/_assets/bg-mobile-dark.jpg');
+    }
+    
+    .app-background-picture.app-background-image-light {
+        background-image: url('../_style/_assets/bg-mobile-light.jpg');
+    }
 }

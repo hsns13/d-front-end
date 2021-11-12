@@ -1,7 +1,16 @@
 
 .todo-list {
-    border-radius: 8px;
     background-color: $very-dark-desaturated-blue;
+    border-radius: 8px 8px 0 0;
+    box-shadow: 0 20px 28px 0 rgba(0, 0, 0, 0.37), 0 30px 20px 0 rgba(0, 0, 0, 0.308);
+}
+
+.todo-list.todo-list-dark {
+    background-color: $very-dark-desaturated-blue;
+}
+
+.todo-list.todo-list-light {
+    background-color: $very-light-gray;
 }
 
 .todo-list__label {
@@ -12,3 +21,9 @@
     margin-left: 24px;
 }
 
+@media (max-width: $desktop-breakpoint) {
+    .todo-list {
+        border-radius: 8px;
+        box-shadow: 0 10px 28px 0 rgba(0, 0, 0, 0.37), 0 20px 20px 0 rgba(0, 0, 0, 0.308);
+    }
+}

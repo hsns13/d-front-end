@@ -1,7 +1,7 @@
 import { todoConstant } from '../_constants';
 
 const defaultState = {
-    completedItems: 0,
+    leftItems: 0,
     totalItemsCount: 0,
     todoList: [],
     all: []
@@ -14,6 +14,7 @@ export const todoReducer = (state = defaultState, action) => {
 
             return {
                 ...state,
+                leftItems: ++state.leftItems,
                 totalItemsCount: state.all.length,
                 todoList: [...state.all]
             }
@@ -25,9 +26,11 @@ export const todoReducer = (state = defaultState, action) => {
 
             state.all[index] = updatingItem;
 
+            const leftItems = state.all.length - state.all.filter(f => f.isActive === 0).length;
+
             return {
                 ...state,
-                completedItems: state.all.filter(f => f.isActive === 0).length,
+                leftItems: leftItems,
                 todoList: [...state.all],
             }
         case todoConstant.REMOVE:
@@ -58,7 +61,6 @@ export const todoReducer = (state = defaultState, action) => {
 
             return {
                 ...state,
-                completedItems: 0,
                 totalItemsCount: state.all.length,
                 todoList: removedCompletedList,
                 all: removedCompletedList

@@ -11,5 +11,13 @@
 }
 
 .button:hover {
-    color: white;
+    color: $very-light-gray;
+}
+
+.button.todo-action-button-dark:hover {
+    color: $very-light-gray;
+}
+
+.button.todo-action-button-light:hover {
+    color: $very-dark-desaturated-blue;
 }

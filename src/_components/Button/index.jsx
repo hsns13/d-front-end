@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 const Button = (props) => {
     return !props.link ?
         (
-            <button className={['button', `button--${props.mode}`].join(' ')}
+            <button className={['button', `${props.mode}`].join(' ')}
                 onClick={props.onClick}>
                 {props.children}
             </button>
         ) : (
-            <Link className={['link', `link--${props.mode}`].join(' ')}
+            <Link className={['link', `${props.mode}`].join(' ')}
                 to={props.to}>
                 {props.children}
             </Link>

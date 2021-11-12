@@ -1,13 +1,28 @@
-.todo-list__item {
+.todo-list-item {
     align-items: center;
     border-bottom: 1px solid $dark-grayish-blue;
     display: flex;
-    justify-content: space-between;
     height: 52px;
     position: relative;
 }
 
-.todo-list__checkbox {
+.todo-list-item:last-child {
+    border-bottom: none;
+}
+
+.todo-list-item__label {
+    color: $light-grayish-blue;
+}
+
+.todo-list-item__label.todo-list-item-dark {
+    color: $light-grayish-blue;
+}
+
+.todo-list-item__label.todo-list-item-light {
+    color: $very-dark-desaturated-blue;
+}
+
+.todo-list-item__checkbox {
     border: 1px solid $light-grayish-blue;
     border-radius: 50%;
     cursor: pointer;
@@ -18,21 +33,33 @@
     width: 14px;
 }
 
-.todo-list__checkbox-first {
+.todo-list-item__checkbox.todo-list-item-dark {
+    border: 1px solid $light-grayish-blue;
+}
+
+.todo-list-item__checkbox.todo-list-item-light {
+    border: 1px solid $very-dark-desaturated-blue;
+}
+
+.checkbox-selected {
     background-image: linear-gradient(to right bottom, red, blue);
 }
 
-.todo-list__checkbox svg {
-    padding-top: 3px;
-    padding-right: 0.5px;
+.label-selected {
+    text-decoration: line-through;
 }
 
-.todo-list__item__line {
-    border-bottom: 1px solid $dark-grayish-blue;
-    display: inline-block;
-    margin: auto;
-    left: 50px;
-    position: absolute;
-    top: 26px;
-    width: 80%;
+.todo-list-item__label.todo-list-item-dark.label-selected {
+    color: $very-light-grayish;
+    opacity: 0.5;
+}
+
+.todo-list-item__label.todo-list-item-light.label-selected {
+    color: $very-dark-desaturated-blue;
+    opacity: 0.5;
+}
+
+.todo-list-item__checkbox svg {
+    padding-top: 3px;
+    padding-right: 0.5px;
 }
