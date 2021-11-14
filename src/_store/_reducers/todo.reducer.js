@@ -34,12 +34,12 @@ export const todoReducer = (state = defaultState, action) => {
                 todoList: [...state.all],
             }
         case todoConstant.REMOVE:
+            const item = state.all.find(f => f.id === action.id);
             state.all = state.all.filter(f => f.id !== action.id);
-
 
             return {
                 ...state,
-                leftItems: --state.leftItems,
+                leftItems: item.isActive ? --state.leftItems : state.leftItems,
                 totalItemsCount: state.all.length,
                 todoList: [...state.all]
             }
