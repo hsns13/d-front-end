@@ -1,5 +1,5 @@
 const config = {
-    apiUrl: ''
+    apiUrl: 'http://localhost:3013'
 };
 
 export {

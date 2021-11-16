@@ -23,7 +23,6 @@ class Todo extends Component {
     }
 
     onChangeTheme = (e) => {
-        console.log('theme: ' + this.props.isDarkThemeActive);
         if (this.props.appContainer.isDarkThemeActive) {
             this.props.lightTheme();
         } else {
@@ -34,15 +33,15 @@ class Todo extends Component {
     // add new item to the list
     onHandleKeyDown = (textValue) => {
         this.props.addTodo({
-            id: Math.random(),
+            id: '',
             isActive: 1,
             todoText: textValue
         });
     }
 
     // update item on the list
-    onUpdate = (id) => {
-        this.props.updateTodo(id);
+    onUpdate = (data) => {
+        this.props.updateTodo(data);
     }
 
     // remove item on the list
@@ -52,7 +51,7 @@ class Todo extends Component {
 
     // get all items on the list, either active or completed
     onAll = (e) => {
-        this.props.all();
+        this.props.getAllTodo();
     }
 
     // get active items
@@ -142,7 +141,7 @@ const mapDispatchToProps = (dispatch) => {
         darkTheme: () => dispatch(appActions.darkTheme()),
         lightTheme: () => dispatch(appActions.lightTheme()),
         addTodo: (todoItem) => dispatch(todoActions.startAdd(todoItem)),
-        updateTodo: (id) => dispatch(todoActions.startUpdate(id)),
+        updateTodo: (data) => dispatch(todoActions.startUpdate(data)),
         removeTodo: (id) => dispatch(todoActions.startRemove(id)),
         getAllTodo: () => dispatch(todoActions.startGetAll()),
         all: () => dispatch(todoActions.all()),

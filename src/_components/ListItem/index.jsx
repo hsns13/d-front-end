@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 // import component
 import { Button } from '../Button';
 
 const ListItem = (props) => {
     const [state, setState] = useState({
-        clicked: false,
-        checkboxSelected: '',
-        itemSelected: ''
+        clicked: props.data.isActive === 1 ? false : true,
+        checkboxSelected: props.data.isActive === 1 ? '' : 'checkbox-selected',
+        itemSelected: props.data.isActive === 1 ? '' : 'label-selected'
     });
 
-    useEffect(() => {
-        if (!props.data.isActive) {
-            setState({
-                clicked: true,
-                checkboxSelected: 'checkbox-selected',
-                itemSelected: 'label-selected'
-            });
-        }
-    }, [props.data.isActive]);
+    // useEffect(() => {
+    //     if (!props.data.isActive) {
+    //         setState({
+    //             clicked: true,
+    //             checkboxSelected: 'checkbox-selected',
+    //             itemSelected: 'label-selected'
+    //         });
+    //     }
+    // }, [props.data.isActive]);
 
     const getClickedButton = () => {
         if (state.clicked) {
@@ -29,15 +29,16 @@ const ListItem = (props) => {
     }
 
     const onClick = (e) => {
-        console.log(state);
-
         setState({
             clicked: !state.clicked,
             checkboxSelected: !state.clicked ? 'checkbox-selected' : '',
             itemSelected: !state.clicked ? 'label-selected' : ''
         });
 
-        props.onUpdate(props.data.id);
+        props.onUpdate({
+            ...props.data,
+            isActive: state.clicked ? 1 : 0
+        });
     }
 
     const onRemove = (e) => {
