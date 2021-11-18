@@ -4,9 +4,9 @@ import { ListItem } from '../ListItem';
 
 const List = (props) => {
     return (
-        <div className={['todo-list', `${props.theme.ListClass}`].join(' ')}>
+        <div className={['todo-list', `${props.theme?.ListClass}`].join(' ')}>
             {
-                props.todoList.map((item) => {
+                props.todoList?.map((item) => {
                     return (
                         <ListItem key={item.id} 
                             data={item} 

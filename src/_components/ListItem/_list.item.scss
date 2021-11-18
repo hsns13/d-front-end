@@ -2,6 +2,7 @@
     align-items: center;
     border-bottom: 1px solid $dark-grayish-blue;
     display: flex;
+    justify-content: space-between;
     height: 52px;
     position: relative;
 }
@@ -15,7 +16,12 @@
     overflow: auto;
     padding: 4px 0;
     word-wrap: break-word;
-    width: 80%;
+    width: 87%;
+}
+
+.todo-list-item__remove-button {
+    padding: 8px;
+    margin-right: 8px;
 }
 
 .todo-list-item__label.todo-list-item-dark {

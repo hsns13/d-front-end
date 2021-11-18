@@ -10,10 +10,10 @@ const add = (todoItem) => {
     }
 }
 
-const update = (todo) => {
+const update = (todoItem) => {
     return {
         type: todoConstant.UPDATE,
-        todo
+        todoItem
     }
 }
 
@@ -117,12 +117,16 @@ const startClearCompleted = () => {
 }
 
 export const todoActions = {
-    startAdd,
-    startUpdate,
-    startRemove,
-    startGetAll,
+    add,
+    update,
+    remove,
     all,
     active,
     completed,
+    clearCompleted,
+    startGetAll,
+    startAdd,
+    startUpdate,
+    startRemove,
     startClearCompleted
 }

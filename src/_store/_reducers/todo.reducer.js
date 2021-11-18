@@ -19,12 +19,14 @@ export const todoReducer = (state = defaultState, action) => {
                 todoList: [...state.all]
             }
         case todoConstant.UPDATE:
-            const index = state.all.findIndex(f => f.id === action.todo.id);
+            const index = state.all.findIndex(f => f.id === action.todoItem.id);
+            const updatingItem = state.all.find(f => f.id === action.todoItem.id);
 
-            const updatingItem = state.all.find(f => f.id === action.todo.id);
-            updatingItem.isActive = updatingItem.isActive === 1 ? 0 : 1;
-
-            state.all[index] = updatingItem;
+            state.all[index] = {
+                ...updatingItem,
+                isActive: action.todoItem.isActive,
+                todoText: action.todoItem.todoText
+            };
 
             const leftItems = state.all.length - state.all.filter(f => f.isActive === 0).length;
 
@@ -37,9 +39,17 @@ export const todoReducer = (state = defaultState, action) => {
             const item = state.all.find(f => f.id === action.id);
             state.all = state.all.filter(f => f.id !== action.id);
 
+            let leftItemsCount = state.leftItems;
+
+            if(item && item.isActive) {
+                --leftItemsCount;
+            } else {
+                leftItemsCount = state.all.filter(f => f.isActive === 1).length;
+            }
+
             return {
                 ...state,
-                leftItems: item.isActive ? --state.leftItems : state.leftItems,
+                leftItems: leftItemsCount,
                 totalItemsCount: state.all.length,
                 todoList: [...state.all]
             }

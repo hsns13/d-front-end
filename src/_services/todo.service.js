@@ -4,7 +4,7 @@ import handleResponse from './helper';
 const getTodoList = () => {
     const requestOptions = {
         method: 'GET',
-        headers: {'Content-Type': 'application/json'}
+        headers: { 'Content-Type': 'application/json' }
     };
 
     return fetch(`${config.apiUrl}/todos`, requestOptions).then(handleResponse);
@@ -13,7 +13,7 @@ const getTodoList = () => {
 const getTodo = (id) => {
     const requestOptions = {
         method: 'GET',
-        headers: {'Content-Type': 'application/json'}
+        headers: { 'Content-Type': 'application/json' }
     };
 
     return fetch(`${config.apiUrl}/todo/${id}`, requestOptions).then(handleResponse);
@@ -22,7 +22,7 @@ const getTodo = (id) => {
 const addTodo = (todo) => {
     const requestOptions = {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(todo)
     };
 
@@ -32,7 +32,7 @@ const addTodo = (todo) => {
 const updateTodo = (todo) => {
     const requestOptions = {
         method: 'PUT',
-        headers: {'Content-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(todo)
     };
 
@@ -42,7 +42,7 @@ const updateTodo = (todo) => {
 const removeTodo = (id) => {
     const requestOptions = {
         method: 'DELETE',
-        headers: {'Content-Type': 'application/json'}
+        headers: { 'Content-Type': 'application/json' }
     };
 
     return fetch(`${config.apiUrl}/todo/${id}`, requestOptions).then(handleResponse);
@@ -51,7 +51,7 @@ const removeTodo = (id) => {
 const clearCompletedTodo = () => {
     const requestOptions = {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'}
+        headers: { 'Content-Type': 'application/json' }
     };
 
     return fetch(`${config.apiUrl}/todoClear`, requestOptions).then(handleResponse);

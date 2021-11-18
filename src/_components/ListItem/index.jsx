@@ -5,20 +5,10 @@ import { Button } from '../Button';
 
 const ListItem = (props) => {
     const [state, setState] = useState({
-        clicked: props.data.isActive === 1 ? false : true,
-        checkboxSelected: props.data.isActive === 1 ? '' : 'checkbox-selected',
-        itemSelected: props.data.isActive === 1 ? '' : 'label-selected'
+        clicked: props.data?.isActive === 1 ? false : true,
+        checkboxSelected: props.data?.isActive === 1 ? '' : 'checkbox-selected',
+        itemSelected: props.data?.isActive === 1 ? '' : 'label-selected'
     });
-
-    // useEffect(() => {
-    //     if (!props.data.isActive) {
-    //         setState({
-    //             clicked: true,
-    //             checkboxSelected: 'checkbox-selected',
-    //             itemSelected: 'label-selected'
-    //         });
-    //     }
-    // }, [props.data.isActive]);
 
     const getClickedButton = () => {
         if (state.clicked) {
@@ -29,16 +19,19 @@ const ListItem = (props) => {
     }
 
     const onClick = (e) => {
+        props.onUpdate({
+            ...props.data,
+            isActive: !state.clicked ? 0 : 1
+        });
+
         setState({
             clicked: !state.clicked,
             checkboxSelected: !state.clicked ? 'checkbox-selected' : '',
             itemSelected: !state.clicked ? 'label-selected' : ''
         });
 
-        props.onUpdate({
-            ...props.data,
-            isActive: state.clicked ? 1 : 0
-        });
+        console.log('continuing');
+        console.log(state.clicked);
     }
 
     const onRemove = (e) => {
@@ -47,19 +40,19 @@ const ListItem = (props) => {
     }
 
     return (
-        <div className={['todo-list-item', `${props.theme.ListItemClass}`].join(' ')}>
-            <div className={['todo-list-item__checkbox', `${state.checkboxSelected}`, `${props.theme.ListItemClass}`].join(' ')}
+        <div className={['todo-list-item', `${props.theme?.ListItemClass}`].join(' ')}>
+            <div className={['todo-list-item__checkbox', `${state.checkboxSelected}`, `${props.theme?.ListItemClass}`].join(' ')}
                 onClick={onClick}>
                 {
                     getClickedButton()
                 }
             </div>
-            <div className={['todo-list-item__label', `${props.theme.ListItemClass}`, `${state.itemSelected}`].join(' ')}>
+            <div className={['todo-list-item__label', `${props.theme?.ListItemClass}`, `${state.itemSelected}`].join(' ')}>
                 {
                     props.children
                 }
             </div>
-            <div>
+            <div className="todo-list-item__remove-button">
                 <Button onClick={onRemove}>
                     X
                 </Button>

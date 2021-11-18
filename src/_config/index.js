@@ -1,5 +1,5 @@
 const config = {
-    apiUrl: 'http://localhost:3013'
+    apiUrl: process.env.REACT_APP_BACKEND_URL
 };
 
 export {
